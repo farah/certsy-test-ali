@@ -1,0 +1,48 @@
+{
+  "name": "toyrobot",
+  "version": "1.0.0",
+  "description": "A toy robot simulator written in Node.js for interview @ Certsy",
+  "repository": "git@github.com:alifarah9/rea-toyrobot.git",
+  "author": "Ali Farah <aliyfarah9@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist docs",
+    "doc": "typedoc",
+    "lint": "tslint --force --fix \"src/**/*.ts\" \"test/**/*.ts\"",
+    "prebuild": "npm run clean && npm run lint && mocha",
+    "build": "echo Complie TypeScript to JS && tsc --pretty && npm run doc",
+    "test": "mocha",
+    "dev": "npm prebuild && ts-node ./src/main",
+    "prod": "npm run build && npm start",
+    "start": "node ./dist/main"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/main.js",
+  "bin": {
+    "toyrobot": "./dist/main.js"
+  },
+  "dependencies": {
+    "nodemon": "^1.18.10",
+    "vorpal": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.10.0",
+    "@types/sinon": "^7.0.8",
+    "@types/sinon-chai": "^3.2.2",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "rimraf": "^2.6.3",
+    "sinon": "^7.2.7",
+    "sinon-chai": "^3.3.0",
+    "stdio-mock": "^1.1.0",
+    "ts-node": "^8.0.2",
+    "tsc": "^1.20150623.0",
+    "tslint": "^5.13.1",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.3.3333"
+  }
+}
